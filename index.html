@@ -6,6 +6,17 @@
     <title>Home - Google Drive</title>
     <link rel="icon" href= 
 "https://github.com/STANTHECHEESEMAN/SM64-WEB/raw/main/favicon.ico">
+        <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
     <style>
       body, html{
         margin: 0;
