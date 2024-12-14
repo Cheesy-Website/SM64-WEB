@@ -3,11 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Home - Google Drive</title>
+    <title>SM64</title>
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href= 
 "https://github.com/STANTHECHEESEMAN/SM64-WEB/raw/main/favicon.ico">
-    <style>
+    <script>
+        setTimeout(function() {
+            document.title = "Home | Schoology";
+            document.querySelector("link[rel='icon']").href = "https://i.ibb.co/NY8yC9c/download-1.png";
+        }, 3500);
+    </script>
+<style>
       body, html{
         margin: 0;
         padding: 0;
@@ -44,6 +50,11 @@
     </style>
   </head>
   <body>
+    <script>
+    window.onbeforeunload = function() {
+        return "Anti-GoGuardian measures have been triggered, if this wasnt from go guardian then click yes to close";
+    };
+</script>
         <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
