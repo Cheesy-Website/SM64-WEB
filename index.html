@@ -48,13 +48,14 @@
         padding-left: 4em;
       }
     </style>
+    <script>
+        window.onbeforeunload = function() {
+            return "Are you sure you want to leave?";
+        };
+    </script>
   </head>
   <body>
-		window.onbeforeunload=function(event)
-	  {
-				if (typeof event=='undefined') event=window.event;
-				if (event) event.returnValue=loc("Are you sure you want to close SM64?");
-		}
+	  
         <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
