@@ -48,11 +48,21 @@
         padding-left: 4em;
       }
     </style>
-    <script>
-        window.onbeforeunload = function() {
-            return "Are you sure you want to leave?";
-        };
-    </script>
+<script>
+    window.onbeforeunload = function() {
+        const cookies = document.cookie.split(';');
+        let warningEnabled = false;
+        cookies.forEach(cookie => {
+            const [name, value] = cookie.trim().split('=');
+            if (name === 'warningEnabled') {
+                warningEnabled = (value === 'true');
+            }
+        });
+        if (warningEnabled) {
+            return "Are you sure you want to leave this page?";
+        }
+    };
+</script>
   </head>
   <body>
 	  
