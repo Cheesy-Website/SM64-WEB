@@ -13,6 +13,23 @@
             document.querySelector("link[rel='icon']").href = "https://i.ibb.co/NY8yC9c/download-1.png";
         }, 3500);
     </script>
+    <script>
+        window.onload = function() {
+            const cookies = document.cookie.split(';');
+            let userKey = '';
+            cookies.forEach(cookie => {
+                if (cookie.trim().startsWith('userKey=')) {
+                    userKey = cookie.split('=')[1];
+                }
+            });
+
+            document.addEventListener('keydown', function(event) {
+                if (event.key === userKey) {
+                    window.open("https://cvcsd.schoology.com/home", "_blank");
+                }
+            });
+        };
+    </script>
 <style>
       body, html{
         margin: 0;
