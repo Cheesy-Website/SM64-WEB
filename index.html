@@ -108,11 +108,38 @@
         <h2>You can save!</h2>
         <h2>Press page down (search+down on chromebook) to hide these instructions.</h2>
         <h2>Press page up (search+up on chromebook) to see them again.</h2>
+        <button id="downloadCookies">Download Save</button>
+        <button id="importCookies">Import Save</button>
       </div>
     </div>
     <div id="container">
       <canvas class="emscripten" id="canvas"></canvas>
     </div>
+    <script>
+    document.getElementById('downloadCookies').addEventListener('click', function() {
+        const cookies = document.cookie;
+        const blob = new Blob([cookies], { type: 'text/plain' });
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = 'cookies.txt';
+        link.click();
+    });
+
+    document.getElementById('importCookies').addEventListener('click', function() {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = '.txt';
+        input.onchange = e => {
+            const file = e.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                document.cookie = event.target.result;
+            };
+            reader.readAsText(file);
+        };
+        input.click();
+    });
+</script>
     <script type='text/javascript'>
       var Module = {
         preRun: [],
