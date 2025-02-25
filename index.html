@@ -80,6 +80,28 @@
         }
     };
 </script>
+<script>
+    window.onload = function() {
+        const cookies = document.cookie.split(';');
+        let userKey = '';
+        let userLink = '';
+        
+        cookies.forEach(cookie => {
+            if (cookie.trim().startsWith('userKey=')) {
+                userKey = cookie.split('=')[1];
+            }
+            if (cookie.trim().startsWith('userLink=')) {
+                userLink = cookie.split('=')[1];
+            }
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === userKey) {
+                window.open(userLink, "_blank");
+            }
+        });
+    };
+</script>
   </head>
   <body>
 	  
